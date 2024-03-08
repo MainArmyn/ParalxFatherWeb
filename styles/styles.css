@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "Titillium";
+    font-style: normal;
+    font-weight: 600;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Titillium"),
+         /* Если не получилось, загрузит woff2 */
+         url("fonts/TitilliumWeb-Bold.ttf") format("ttf")
+  }
+
+
+  @keyframes AirPlaneFly {
+    0% {
+        top: 20px;
+        left: 20px;
+    }
+
+    100% {
+        left: 110vw;
+    }
+  }
+body {
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    opacity: 0.5;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    bottom: 0;
+}
+
+.header__background {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.header__airplane-container {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    animation-name: AirPlaneFly;
+    animation-duration: 5s;
+    left: 20px;
+    z-index: 4;
+}
+
+
+.header__airplane-text {
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    font-family: "Titillium",Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    font-weight: 600;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    border-radius: 0px 30px 30px 0px;
+    color: black;
+}
+
+
+.header__airplane {
+    width: 200px;
+    height: 100px;
+}
+
+.header__airplaneDisappear {
+    display: none;
+}
+
+.header__logo {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    z-index: 4;
+}
+
+.header__title {
+    position: relative;
+    color: white;
+    font-size: 45px;
+    font-style: italic;
+    font-family: "Titillium",Arial, Helvetica, sans-serif;
+    z-index: 4;
+}
