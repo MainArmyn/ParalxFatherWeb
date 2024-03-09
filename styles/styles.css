@@ -16,7 +16,17 @@
     }
 
     100% {
-        left: 110vw;
+        left: 50vw;
+        top: -100px;
+    }
+  }
+  @keyframes TitleAppear {
+    0% {
+        margin-top: -100vh;
+    }
+
+    100% {
+        margin-top: 0px;
     }
   }
 body {
@@ -28,7 +38,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    overflow: hidden;
     flex-direction: column;
+    z-index: -1;
     position: relative;
     height: 100vh;
 }
@@ -49,20 +61,25 @@ body {
     width: 100%;
     position: absolute;
     z-index: 2;
+    transform-origin: center center; 
     top: 0;
+    transform: scale(1.2); /* Начальный масштаб фона */
+  transition: "transform" 0.3s ease-out;
     right: 0;
     left: 0;
     bottom: 0;
 }
+
+
 
 .header__airplane-container {
     display: flex;
     position: absolute;
     top: 20px;
     animation-name: AirPlaneFly;
-    animation-duration: 5s;
+    animation-duration: 2s;
     left: 20px;
-    z-index: 4;
+    z-index: 2;
 }
 
 
@@ -94,16 +111,27 @@ body {
     display: none;
 }
 
+
+
 .header__logo {
     width: 200px;
     height: 150px;
     position: relative;
+    transition: "transform" 0.3s ease-out;
     z-index: 4;
+}
+
+
+.paralaxActive {
+    transform: translateY(-50%) scale(1.2) !important;
+    transition: 200ms;
 }
 
 .header__title {
     position: relative;
     color: white;
+    animation-name: TitleAppear;
+    animation-duration: 800ms;
     font-size: 45px;
     font-style: italic;
     font-family: "Titillium",Arial, Helvetica, sans-serif;

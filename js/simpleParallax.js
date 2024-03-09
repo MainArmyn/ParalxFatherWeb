@@ -745,8 +745,9 @@ var simpleParallax_SimpleParallax = /*#__PURE__*/function () {
 /***/ })
 /******/ ])["default"];
 });
-var image = document.getElementsByClassName('thumbnail');
-        new simpleParallax(image, {
-            delay: .6,
-            transition: 'cubic-bezier(0,0,0,1)'
-        });
+// var image = document.getElementsByClassName('thumbnail');
+//         new simpleParallax(image, {
+//             delay: .6,
+//             scale: 1.5,
+//             transition: 'cubic-bezier(0,0,0,1)'
+//         });
