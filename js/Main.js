@@ -1,8 +1,10 @@
 function AirplaneDis() {
     document.addEventListener("DOMContentLoaded", () => {
+        StarDisappear();
         const plane = document.querySelector(".header__airplane-container");
         setTimeout(() => {
             plane.classList.add("header__airplaneDisappear");
+            StarAppear();
         }, 1900)
     })
 }
@@ -25,14 +27,38 @@ function ParInit(name) {
 
 function BackParalax() {
     window.addEventListener("scroll", () => {
+        StarDisappear();
         const scrollHeight = document.documentElement.scrollTop;
         const parallaxBg = document.querySelector(".header__background");
         let scale = 1.2 + scrollHeight/50;
-        if (scale < 1) {
+        if (scale === 1.2) {
+            StarAppear();
+        }
+        if (scale < 0.87) {
           scale = 3 - scale; // Изменяем масштаб в обратную сторону
+          StarAppear();
         }
         parallaxBg.style.transform = `scale(${scale})`;
       });
+}
+function FindAndAdd(classToFind,classToAdd) {
+    const el = [...document.querySelectorAll("."+ classToFind)];
+    el.forEach(item => {
+        let {top,bottom} = item.getBoundingClientRect();
+            if (top <= window.innerHeight && bottom >= 0) {
+                 item.classList.add(classToAdd)
+    }
+    })
+}
+function StarDisappear() {
+    [...document.querySelectorAll(".star")].forEach(el => {
+        el.style.display = "none";
+    });
+}
+function StarAppear() {
+    [...document.querySelectorAll(".star")].forEach(el => {
+        el.style.display = "block";
+    });
 }
 
 
@@ -47,3 +73,17 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
     backSpeed: 50, // Скорость удаления
     loop: true // Указываем, повторять ли анимацию
 });
+
+// const sparkleButton = document.getElementById('sparkle-button');
+
+// sparkleButton.addEventListener('mousedown', function () {
+//   sparkleButton.classList.add('active');
+// });
+
+// sparkleButton.addEventListener('mouseup', function () {
+//   sparkleButton.classList.remove('active');
+// });
+function AddAnimation() {
+    FindAndAdd("main__about","main__about__appear");
+}
+window.addEventListener("scroll",AddAnimation);
