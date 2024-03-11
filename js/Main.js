@@ -3,12 +3,18 @@ function AirplaneDis() {
         StarDisappear();
         ButtonControl(false);
         setTimeout(ButtonControl,5000,true);
-        const plane = document.querySelector(".header__airplane-container");
-        setTimeout(() => {
-            plane.classList.add("header__airplaneDisappear");
-            StarAppear();
-        }, 1900)
+        HeaderWork();
     })
+}
+function HeaderWork() {
+    const logo = document.querySelector(".header__logo");
+    logo.style.display = "none";
+    const title  = document.querySelector(".header__title");
+    title.style.display = "none";
+    setTimeout(() => {
+        logo.style.display = "block";
+        title.style.display = "block";
+    },2000);
 }
 function ParInit(name) {
     const element = document.querySelector(name);
