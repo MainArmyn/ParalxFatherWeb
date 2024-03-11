@@ -26,26 +26,25 @@
         <div class="header__airplane-container">
             <img class="header__airplane" alt="самолет" src="assets/самолет.png">
         </div>
-
         <img class="header__logo" alt="логотип ян саркисян" src="assets/download-3.png">
         <div class="header__title" id="text-typing">
             <span id="typed">Дома в которых хочется жить</span>
         </div>
-        <!-- <a href="#">
-            <span>Button</span>
-            <div class="liquid"></div>
-          </a> -->
         <div id="typed-strings">
             <span>Агенство недвижемости</span>
             <span>Яна Саркисяна</span>
         </div>
+        <!-- <a href="#about" class="header__href">Узнать больше</a> -->
+        <div class="header__href">
+            <a href="#about" class="header__newHref">Узнать больше?</a>
+          </div>
 
 
     </header>
     <main class="main">
-        <section class="main__about">
-            <img alt="ян саркисян" src="assets/father1.png" class="main__about__main__about-img">
-            <div class="main__main__about__text">
+        <section class="main__about" id="about">
+            <img alt="ян саркисян" src="assets/father1.png" class="main__about__img">
+            <div class="main__about__text">
                 Меня зовут Ян Саркисян. Так получилось, что больше 20 лет я занимаюсь продажей и управлением элитной
                 Недвижимости. Я понимаю в этом сегменте рынка , «что такое хорошо и что такое плохо». Я хороший
                 проводник для тех, кто хочет приобрести лучшее из того что есть на этом рынке и для тех кто продает
@@ -64,12 +63,14 @@
                 <li></li>
                 <li></li>
             </ul>
+            <button class="main__about__go-btn"></button>
         </section>
     </main>
 
 
     <script src="js/simpleParallax.js"></script>
     <script src="js/typed.umd.js"></script>
+    <script src="js/Buttons.js"></script>
     <script src="js/Main.js"></script>
 </body>
 

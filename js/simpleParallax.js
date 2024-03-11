@@ -259,7 +259,7 @@ var parallax_ParallaxInstance = /*#__PURE__*/function () {
     this.isInit = false;
     this.oldTranslateValue = -1;
     this.init = this.init.bind(this);
-    this.customWrapper = this.settings.customWrapper && this.element.closest(this.settings.customWrapper) ? this.element.closest(this.settings.customWrapper) : null; // check if images has not been loaded yet
+    this.customheader__href = this.settings.customheader__href && this.element.closest(this.settings.customheader__href) ? this.element.closest(this.settings.customheader__href) : null; // check if images has not been loaded yet
 
     if (helpers_isImageLoaded(element)) {
       this.init();
@@ -330,32 +330,32 @@ var parallax_ParallaxInstance = /*#__PURE__*/function () {
     key: "wrapElement",
     value: function wrapElement() {
       // check is current image is in a <picture> tag
-      var elementToWrap = this.element.closest('picture') || this.element; // create a .simpleParallax wrapper container
-      // if there is a custom wrapper
-      // override the wrapper with it
+      var elementToWrap = this.element.closest('picture') || this.element; // create a .simpleParallax header__href container
+      // if there is a custom header__href
+      // override the header__href with it
 
-      var wrapper = this.customWrapper || document.createElement('div');
-      wrapper.classList.add('simpleParallax');
-      wrapper.style.overflow = 'hidden'; // append the image inside the new wrapper
+      var header__href = this.customheader__href || document.createElement('div');
+      header__href.classList.add('simpleParallax');
+      header__href.style.overflow = 'hidden'; // append the image inside the new header__href
 
-      if (!this.customWrapper) {
-        elementToWrap.parentNode.insertBefore(wrapper, elementToWrap);
-        wrapper.appendChild(elementToWrap);
+      if (!this.customheader__href) {
+        elementToWrap.parentNode.insertBefore(header__href, elementToWrap);
+        header__href.appendChild(elementToWrap);
       }
 
-      this.elementContainer = wrapper;
-    } // unwrap the element from .simpleParallax wrapper container
+      this.elementContainer = header__href;
+    } // unwrap the element from .simpleParallax header__href container
 
   }, {
     key: "unWrapElement",
     value: function unWrapElement() {
-      var wrapper = this.elementContainer; // if there is a custom wrapper, we jusy need to remove the class and style
+      var header__href = this.elementContainer; // if there is a custom header__href, we jusy need to remove the class and style
 
-      if (this.customWrapper) {
-        wrapper.classList.remove('simpleParallax');
-        wrapper.style.overflow = '';
+      if (this.customheader__href) {
+        header__href.classList.remove('simpleParallax');
+        header__href.style.overflow = '';
       } else {
-        wrapper.replaceWith.apply(wrapper, _toConsumableArray(wrapper.childNodes));
+        header__href.replaceWith.apply(header__href, _toConsumableArray(header__href.childNodes));
       }
     } // apply default style on element
 
@@ -589,7 +589,7 @@ var simpleParallax_SimpleParallax = /*#__PURE__*/function () {
       overflow: false,
       transition: 'cubic-bezier(0,0,0,1)',
       customContainer: '',
-      customWrapper: '',
+      customheader__href: '',
       maxTransition: 0
     };
     this.settings = Object.assign(this.defaults, options);
@@ -721,7 +721,7 @@ var simpleParallax_SimpleParallax = /*#__PURE__*/function () {
 
         if (_this3.settings.overflow === false) {
           // if overflow option is set to false
-          // unwrap the element from .simpleParallax wrapper container
+          // unwrap the element from .simpleParallax header__href container
           instance.unWrapElement();
         }
       }); // if no instances left, remove the raf and resize event = simpleParallax fully destroyed

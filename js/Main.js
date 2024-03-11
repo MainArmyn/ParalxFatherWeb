@@ -1,6 +1,8 @@
 function AirplaneDis() {
     document.addEventListener("DOMContentLoaded", () => {
         StarDisappear();
+        ButtonControl(false);
+        setTimeout(ButtonControl,5000,true);
         const plane = document.querySelector(".header__airplane-container");
         setTimeout(() => {
             plane.classList.add("header__airplaneDisappear");
@@ -60,6 +62,17 @@ function StarAppear() {
         el.style.display = "block";
     });
 }
+function ButtonControl(flag) {
+    document.querySelector('.header__href').style.display = flag ? "block":"none";
+}
+// function OneStartAppear() {
+//     [...document.querySelectorAll(".start")].forEach(item => {
+//         if (item.style.display === "none") {
+//             item.style.display = "block";
+//             return
+//         }
+//     })
+// }
 
 
 ParInit(".header__logo");
@@ -69,7 +82,7 @@ AirplaneDis();
 let typed = new Typed('#typed', { // Тут id того блока, в которм будет анимация
     stringsElement: '#typed-strings', // Тут id блока из которого берем строки для анимации
     typeSpeed: 100, // Скорость печати
-    startDelay: 500, // Задержка перед стартом анимации
+    startDelay: 2000, // Задержка перед стартом анимации
     backSpeed: 50, // Скорость удаления
     loop: true // Указываем, повторять ли анимацию
 });
