@@ -23,11 +23,11 @@
 
 @keyframes TitleAppear {
     0% {
-        margin-top: -100vh;
+        margin-bottom: -100vh;
     }
 
     100% {
-        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
 
@@ -39,6 +39,25 @@
     100% {
         opacity: 1;
     }
+}
+
+@keyframes FromRight {
+    0% {
+        transform: translateX(1000px);
+    }
+    100% {
+       transform: translateX(0px);
+    }
+}
+
+.main__aboutImgAppear {
+    animation-name: FromLeft;
+    animation-duration: 3s;
+}
+
+.main__aboutTextAppear {
+    animation-name: FromRight;
+    animation-duration: 3s;
 }
 @media (max-width: 850px) {
 
@@ -704,7 +723,7 @@ body {
     border-radius: 20px 0 0 0;
     background: #337AB7;
     flex-direction: column;
-    padding: 20px 5px 0 5px;
+    padding: 25px 10px 0 10px;
     box-sizing: border-box;
   }
   
@@ -720,12 +739,34 @@ body {
     flex-grow: 1;
     overflow-y: auto;
   }
+
+  .chat-widget__messages-title {
+    color: white;
+    font-weight: 600;
+    margin: 5px;
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
+   text-align: center;
+    text-transform: uppercase;
+  }
+
+  @keyframes FromLeft {
+    0% {
+        transform: translateX(-1000px);
+    }
+
+    100% {
+       transform: translateX(0px);
+    }
+  }
   
   .chat-widget__side {
     position: relative;
     width: 50px;
     height: 250px;
     cursor: pointer;
+    animation: FromRight;
+    animation-duration: 1000ms;
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5); 
     background: #167aab;
     border-radius: 20px 0 0 0;
   }
@@ -734,6 +775,7 @@ body {
   .message {
     margin-bottom: 10px;
     display: flex;
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
     align-items: center;
   }
   
@@ -765,11 +807,12 @@ body {
     0 4px 8px rgba(0, 0, 0, 0.4),
     0 6px 12px rgba(0, 0, 0, 0.4),
     0 8px 16px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+    border-radius: 7px;
   }
   
   .message_client .message__text {
-    background: red;
+    background: rgb(174, 86, 174);
+    color: white;
   }
   
   .chat-widget__input {
@@ -806,6 +849,16 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+
+  .chat-widget__send-btn {
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: none;
   }
 
 
