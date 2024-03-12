@@ -4,6 +4,11 @@ function AirplaneDis() {
     document.addEventListener("DOMContentLoaded", () => {
         StarDisappear();
         ButtonControl(false);
+        let oldTime = document.querySelector(".message__time");
+        oldTime.textContent = new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
         setTimeout(ButtonControl, 5000, true);
         HeaderWork();
     })
@@ -21,24 +26,24 @@ function HeaderWork() {
 }
 function AboutWork() {
     function AboutMove() {
-       
+
         const imgArea = document.querySelector(".main__about__img-container");
         const textArea = document.querySelector(".main__about__text");
         const scrollHeight = document.documentElement.scrollTop;
         const backhandler = () => {
-            while(timerImgArea !== 0 || timerTextArea !== 0) {
-                timerImgArea-=30;
-                timerTextArea-=30;
+            while (timerImgArea !== 0 || timerTextArea !== 0) {
+                timerImgArea -= 30;
+                timerTextArea -= 30;
                 imgArea.style.transform = `translateX(-${timerImgArea}px)`;
                 textArea.style.transform = `translateX(${timerTextArea}px)`;
             }
         };
         if (isElementFullyVisible(imgArea) === false) {
-                timerImgArea+=30;
-                timerTextArea+=30;
-                imgArea.style.transform = `translateX(-${timerImgArea}px)`;
-                textArea.style.transform = `translateX(${timerTextArea}px)`;
-            
+            timerImgArea += 30;
+            timerTextArea += 30;
+            imgArea.style.transform = `translateX(-${timerImgArea}px)`;
+            textArea.style.transform = `translateX(${timerTextArea}px)`;
+
         } else {
             backhandler();
             timerImgArea = 0;

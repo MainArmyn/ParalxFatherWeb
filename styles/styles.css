@@ -115,6 +115,7 @@
     .popup-error {
         font-size: 14px;
         width: 150px;
+        z-index: 4;
         left: -55px;
         top: -100px;
     }
