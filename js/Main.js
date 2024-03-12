@@ -26,11 +26,13 @@ function HeaderWork() {
 }
 function AboutWork() {
     function AboutMove() {
-
+        const goBtn = document.querySelector(".main__about__go-btn");
         const imgArea = document.querySelector(".main__about__img-container");
         const textArea = document.querySelector(".main__about__text");
         const scrollHeight = document.documentElement.scrollTop;
+        goBtn.style.display = "none";
         const backhandler = () => {
+            goBtn.style.display = "block";
             while (timerImgArea !== 0 || timerTextArea !== 0) {
                 timerImgArea -= 30;
                 timerTextArea -= 30;

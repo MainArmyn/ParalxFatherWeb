@@ -67,7 +67,12 @@ function ChatGpd() {
     const messageContainer = chat.querySelector(".chat-widget__messages");
     const closeBtn = document.querySelector(".chat-widget__close-btn");
     closeBtn.onclick = () => {
-        chat.classList.remove("chat-widget_active");
+        chat.classList.add("chat-widget__areaClose");
+        setTimeout(() => {
+            chat.classList.remove("chat-widget_active");
+            chat.classList.remove("chat-widget__areaClose");
+            void сhat.offsetWidth; //пересчет стилей элемента
+        },900);
     };
     // const botMessages = ["Перезвоните позже ,а точнее никогда!","Вы простите ,но вы похожи на дурака...","Вы мне напоминаете назойливую муху!!","А вы дома голову не забыли чтоб такое писать!"];
     chatBtn.onclick = function () {

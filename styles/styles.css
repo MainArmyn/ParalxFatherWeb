@@ -153,6 +153,7 @@
     .popup-error {
         width: 300px;
         top: 10px;
+        z-index: 4;
         right: -200px;
     }
 
@@ -516,20 +517,16 @@ body {
 
 .main__about__img-container {
     position: relative;
+    z-index: 3;
 }
-
-
-  
-
-  
-  
+    
   
   .popup-error {
     background-color: white;
     animation-name: FromBottom;
     animation-duration: 3s;
     color: black;
-    z-index: 3;
+    z-index: 5;
     border-radius: 10px;
     padding: 10px;
   
@@ -705,6 +702,21 @@ body {
     top: -35px;
 }
 
+@keyframes ToRight {
+    0% {
+        margin-right: 0px
+    }
+
+    100% {
+        margin-right: -400px;
+    }
+}
+
+.chat-widget__areaClose {
+    animation-name: ToRight;
+    animation-duration: 1s;
+}
+
 
 .chat-widget {
     position: fixed;
@@ -715,6 +727,8 @@ body {
   .chat-widget__area {
     display: none;
     width: 300px;
+    animation-name: FromRight;
+    animation-duration: 1000ms;
     height: 300px;
     box-shadow:  0px 2px 4px rgba(0, 0, 0, 0.4), 
     0 4px 8px rgba(0, 0, 0, 0.4),
@@ -722,7 +736,7 @@ body {
     0 8px 16px rgba(0, 0, 0, 0.4);
     border-width: 1px 0 0 1px;
     border-radius: 20px 0 0 0;
-    background: #337AB7;
+    background: #1f4a70;
     flex-direction: column;
     padding: 25px 10px 0 10px;
     box-sizing: border-box;
@@ -741,10 +755,13 @@ body {
     overflow-y: auto;
   }
 
+  .chat-widget__messages {
+    margin-top: 10px;
+  }
+
   .chat-widget__messages-title {
     color: white;
     font-weight: 600;
-    margin: 5px;
     font-family: "Titillium", Arial, Helvetica, sans-serif;
    text-align: center;
     text-transform: uppercase;
@@ -782,6 +799,7 @@ body {
   
   .message__time {
     display: inline-block;
+    color: white;
   }
   
   .message_client {
@@ -856,6 +874,7 @@ body {
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
+    text-transform: uppercase;
     background-color: white;
     border-radius: 10px;
     margin-top: 10px;
