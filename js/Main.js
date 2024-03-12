@@ -14,7 +14,15 @@ function HeaderWork() {
     setTimeout(() => {
         logo.style.display = "block";
         title.style.display = "block";
+        StarAppear();
     },2000);
+}
+function AboutWork() {
+    const toolTip = document.querySelector(".popup-error");
+    toolTip.style.display = "none";
+    setTimeout(() => {
+        toolTip.style.display = "block";
+    },2000); 
 }
 function ParInit(name) {
     const element = document.querySelector(name);
@@ -48,6 +56,16 @@ function BackParalax() {
         }
         parallaxBg.style.transform = `scale(${scale})`;
       });
+}
+function NewParalax() {
+    window.addEventListener("scroll", () => {
+        const title = document.querySelector(".header__title");
+        const scrollHeight = document.documentElement.scrollTop;
+        const go = document.querySelector(".header__href");
+        go.style.zIndex = scrollHeight === 0 ? 5:4;
+        const logo = document.querySelector(".header__logo");
+        logo.style.marginTop = scrollHeight >= window.innerHeight ? 0 + "px":scrollHeight + "px";
+    })
 }
 function FindAndAdd(classToFind,classToAdd) {
     const el = [...document.querySelectorAll("."+ classToFind)];
@@ -83,7 +101,7 @@ function ButtonControl(flag) {
 
 ParInit(".header__logo");
 ParInit(".header__title");
-BackParalax();
+NewParalax();
 AirplaneDis();
 let typed = new Typed('#typed', { // Тут id того блока, в которм будет анимация
     stringsElement: '#typed-strings', // Тут id блока из которого берем строки для анимации
@@ -104,5 +122,6 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
 // });
 function AddAnimation() {
     FindAndAdd("main__about","main__about__appear");
+    AboutWork();
 }
 window.addEventListener("scroll",AddAnimation);
