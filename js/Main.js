@@ -27,27 +27,22 @@ function HeaderWork() {
 function AboutWork() {
     function AboutMove() {
         const goBtn = document.querySelector(".main__about__go-btn");
+        if (window.innerWidth <= 850) {
+            goBtn.style.display = "none";
+        }
         const imgArea = document.querySelector(".main__about__img-container");
         const textArea = document.querySelector(".main__about__text");
         const scrollHeight = document.documentElement.scrollTop;
         goBtn.style.display = "none";
-        const backhandler = () => {
-            goBtn.style.display = "block";
-            while (timerImgArea !== 0 || timerTextArea !== 0) {
-                timerImgArea -= 30;
-                timerTextArea -= 30;
-                imgArea.style.transform = `translateX(-${timerImgArea}px)`;
-                textArea.style.transform = `translateX(${timerTextArea}px)`;
-            }
-        };
-        if (isElementFullyVisible(imgArea) === false) {
+        if (isElementFullyVisible(imgArea) === false && isElementFullyVisible(textArea) === false) {
             timerImgArea += 30;
             timerTextArea += 30;
             imgArea.style.transform = `translateX(-${timerImgArea}px)`;
             textArea.style.transform = `translateX(${timerTextArea}px)`;
 
         } else {
-            backhandler();
+            textArea.style.transform = "none";
+            imgArea.style.transform = "none";
             timerImgArea = 0;
             timerTextArea = 0;
         }
@@ -179,11 +174,11 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
 function AddAnimation() {
     const imgAreaAbout = document.querySelector(".main__about__img-container");
     const textAbout = document.querySelector(".main__about__text");
-    if (IsVisible(imgAreaAbout)) {
+    if (IsVisible(imgAreaAbout) || IsVisible(textAbout)) {
         imgAreaAbout.classList.add("main__aboutImgAppear");
         textAbout.classList.add("main__aboutTextAppear");
     }
     // FindAndAdd("main__about", "main__about__appear");
-    AboutWork();
+        AboutWork();
 }
 window.addEventListener("scroll", AddAnimation);
