@@ -59,7 +59,78 @@
     animation-name: FromRight;
     animation-duration: 3s;
 }
-@media (max-width: 850px) {
+
+@media (max-width: 400px) {
+    .header {
+        background-image: url("../assets/FullSizeRender.GIF");
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .header__background {
+        display: none;
+    }
+
+
+    .paralax-layer {
+        height: 800px;
+    }
+
+    .header__title {
+        font-size: 25px;
+    }
+
+  
+
+    .header__newHref {
+        font-size: 18px;
+    }
+
+    .main__about {
+        flex-direction: column-reverse;
+        /* overflow: hidden; */
+        gap: 40px;
+    }
+
+    .main__about__text {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .main__about__go-btn {
+        display: none;
+    }
+
+    .main__about__img-container {
+        align-self: center;
+    }
+
+    .main__about__img {
+        width: 270px;
+        align-self: center;
+        height: 300px;
+    }
+
+    .popup-error {
+        font-size: 14px;
+        width: 150px;
+        z-index: 4;
+        left: -55px;
+        top: -100px;
+    }
+
+    .popup-error span::after {
+        content: "...";
+        color: white;
+        font-size: 40px;
+        position: absolute;
+        right: -37px;
+        bottom: -29px;
+        transform: rotate(45deg);
+      }
+}
+@media (max-width: 850px) and (min-width: 401px) {
 
       .header {
         background-image: url("../assets/FullSizeRender.GIF");
@@ -131,7 +202,7 @@
       }
 }
 
-@media (max-width: 1191px),(min-width: 851px) {
+@media (max-width: 1191px) and (min-width: 851px) {
     .header {
         background-image: url("../assets/FullSizeRender.GIF");
         background-size: cover;
@@ -185,7 +256,7 @@
 
  
 }
-@media (min-width: 1190px) {
+@media (min-width: 1192px) {
     .header__title {
         font-size: 45px;
     }
@@ -237,6 +308,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #1f4a70;
     width: 100%;
     overflow: hidden;
     flex-direction: column;
@@ -279,6 +351,7 @@ body {
 
 .header .star:nth-child(1) {
     top: 70px;
+    display: none !important;
     left: 70px;
 }
 

@@ -33,15 +33,20 @@ function AboutWork() {
         const imgArea = document.querySelector(".main__about__img-container");
         const textArea = document.querySelector(".main__about__text");
         const scrollHeight = document.documentElement.scrollTop;
-        goBtn.style.display = "none";
         if (isElementFullyVisible(imgArea) === false && isElementFullyVisible(textArea) === false) {
             timerImgArea += 30;
             timerTextArea += 30;
+            goBtn.style.display = "none";
             imgArea.style.transform = `translateX(-${timerImgArea}px)`;
             textArea.style.transform = `translateX(${timerTextArea}px)`;
 
         } else {
             textArea.style.transform = "none";
+            if (window.innerWidth <= 850) {
+                goBtn.style.display = "none";
+            } else {
+                goBtn.style.display = "block";
+            }
             imgArea.style.transform = "none";
             timerImgArea = 0;
             timerTextArea = 0;
