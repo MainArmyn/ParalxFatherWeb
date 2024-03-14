@@ -80,6 +80,7 @@ function ChatGpd() {
     };
     sendBtn.onclick = () => {
         if (chatInput.value.trim() === "") {
+            chatInput.focus();
             return;
         }
         userMessage = `<div class="message message_client" tabindex="-1">

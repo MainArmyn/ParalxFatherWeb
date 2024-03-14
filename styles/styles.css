@@ -261,6 +261,10 @@
         font-size: 45px;
     }
 
+    .paralax-layer {
+       margin-bottom: -30px;
+    }
+
    .header__newHref {
         font-size: 24px;
     }
@@ -632,6 +636,7 @@ body {
     width: 100%;
     display: flex;
     padding-top: 40px;
+    overflow: hidden;
     box-sizing: border-box;
     padding-left: 40px;
     padding-right: 40px;
@@ -862,9 +867,9 @@ body {
     0 8px 16px rgba(0, 0, 0, 0.4);
     border-width: 1px 0 0 1px;
     border-radius: 20px 0 0 0;
-    background: #1f4a70;
+    background: #ffffff;
     flex-direction: column;
-    padding: 25px 10px 0 10px;
+    overflow: hidden;
     box-sizing: border-box;
   }
   
@@ -883,15 +888,46 @@ body {
 
   .chat-widget__messages {
     margin-top: 10px;
+    padding: 12px;
   }
 
   .chat-widget__messages-title {
-    color: white;
-    font-weight: 600;
     font-family: "Titillium", Arial, Helvetica, sans-serif;
-   text-align: center;
-    text-transform: uppercase;
+   display: flex;
+   background-color: #1d71e6;
+   padding: 12px;
+   align-items: center;
+   gap: 10px;
   }
+
+  .chat-widget__messages-title__logo {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0053f8;
+  }
+
+  .chat-widget__messages-title__bot-name-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: flex-start;
+  }
+
+  .chat-widget__messages-title__bot-name-container span:nth-child(1) {
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .chat-widget__messages-title__bot-name-container span:nth-child(2) {
+    font-size: 13px;
+  }
+
+
 
   @keyframes FromLeft {
     0% {
@@ -919,13 +955,15 @@ body {
   .message {
     margin-bottom: 10px;
     display: flex;
+    gap: 4px;
+    flex-direction: column-reverse;
     font-family: "Titillium", Arial, Helvetica, sans-serif;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .message__time {
     display: inline-block;
-    color: white;
+    color: black;
   }
   
   .message_client {
@@ -946,22 +984,18 @@ body {
     order: 1;
     display: inline-block;
     padding: 5px;
-    background: rgb(255, 255, 255);
+    background: rgb(120, 171, 205);
     color: black;
-    box-shadow:  0px 2px 4px rgba(0, 0, 0, 0.4), 
-    0 4px 8px rgba(0, 0, 0, 0.4),
-    0 6px 12px rgba(0, 0, 0, 0.4),
-    0 8px 16px rgba(0, 0, 0, 0.4);
     border-radius: 7px;
   }
   
   .message_client .message__text {
-    background: rgb(174, 86, 174);
-    color: white;
+    background: rgb(200, 195, 200);
+    color: black;
   }
   
   .chat-widget__input {
-    border: 1px solid gray;
+    border: 2px solid gray;
     padding: 10px;
     border-radius: 10px;
   }
@@ -1000,24 +1034,28 @@ body {
     padding: 10px;
     font-weight: 600;
     cursor: pointer;
+    color: white;
     text-transform: uppercase;
-    background-color: white;
-    border-radius: 10px;
+    background-color: #1d71e6;
     margin-top: 10px;
     border: none;
   }
 
   .main__homes {
-    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(-45deg, #ece8e7, #b926c6, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #ece8e7, #2671c6, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    overflow-x: scroll;
-    box-sizing: border-box;
+    width: 100%;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE10+ */
+  scrollbar-width: none;  /* Firefox */
+  }
+
+  .main__homes::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
   }
 
   @keyframes gradient {
@@ -1033,16 +1071,27 @@ body {
 }
 
 .main__homes__title {
-    width: 100vw;
+    width: 100%;
     display: flex;
+    height: 100%;
+    flex-direction: column;
     align-items: center;
+    flex-shrink: 0;
     justify-content: center;
 }
 
 
+.main__homes__title__text {
+    font-size: 27px;
+    color: white;
+    display: flex;
+    margin-top: 40px;
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
+}
+
 
   .word {
-    font-family: 'Anton', sans-serif;
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
     perspective: 1000px; 
     color: white;
   }
@@ -1142,6 +1191,12 @@ body {
   .word span:nth-child(6).active {
     animation: rotate 1s ease-out;
   }
+
+  
+  .word span:nth-child(7).active {
+    animation: toplong 1s ease-out;
+  }
+  
   
   @keyframes toplong {
     10%, 40% {
@@ -1151,6 +1206,14 @@ body {
     90% {
       transform: translateY(-48vh) scaleY(4);
     }
+  }
+
+  .main__home {
+    display: flex;
+    width: 500px;
+    flex-shrink: 0;
+    background-color: white;
+    height: 300px;
   }
 
  
