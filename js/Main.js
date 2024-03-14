@@ -132,6 +132,13 @@ function FindAndAdd(classToFind, classToAdd) {
         }
     })
 }
+function FindStart(who,func) {
+    const el = document.querySelector(who);
+    let { top, bottom } = el.getBoundingClientRect();
+    if (top <= window.innerHeight && bottom >= 0) {
+       func();
+    }
+}
 function StarDisappear() {
     [...document.querySelectorAll(".star")].forEach(el => {
         el.style.display = "none";
@@ -157,6 +164,8 @@ function ButtonControl(flag) {
 
 ParInit(".header__logo");
 ParInit(".header__title");
+ParInit(".header__href");
+ParInit(".word");
 NewParalax();
 AirplaneDis();
 let typed = new Typed('#typed', { // Тут id того блока, в которм будет анимация
@@ -184,23 +193,24 @@ function AddAnimation() {
         textAbout.classList.add("main__aboutTextAppear");
     }
     // FindAndAdd("main__about", "main__about__appear");
+    FindStart(".main__homes",HomesWords);
     AboutWork();
 }
 window.addEventListener("scroll", AddAnimation);
-function Homes() {
-    const text = document.getElementById('text');
-    const range = 16;
+function HomesWords() {
+    const spans = document.querySelectorAll('.word span');
 
-    function updateShadow(event) {
-        const x = Math.round(event.pageX * range / window.innerWidth) - range / 2;
-        const y = Math.round(event.pageY * range / window.innerHeight) - range / 2;
-        gsap.to(text, {
-            '--x': x,
-            '--y': y,
+    spans.forEach((span, idx) => {
+        span.addEventListener('click', (e) => {
+            e.target.classList.add('active');
         });
-    }
+        span.addEventListener('animationend', (e) => {
+            e.target.classList.remove('active');
+        });
 
-    document.body.addEventListener('mousemove', updateShadow);
+        // Initial animation
+        setTimeout(() => {
+            span.classList.add('active');
+        }, 750 * (idx + 1))
+    });
 }
-Homes();
-
