@@ -132,11 +132,11 @@ function FindAndAdd(classToFind, classToAdd) {
         }
     })
 }
-function FindStart(who,func) {
+function FindStart(who, func) {
     const el = document.querySelector(who);
     let { top, bottom } = el.getBoundingClientRect();
     if (top <= window.innerHeight && bottom >= 0) {
-       func();
+        func();
     }
 }
 function StarDisappear() {
@@ -175,13 +175,6 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
     backSpeed: 50, // Скорость удаления
     loop: true // Указываем, повторять ли анимацию
 });
-let typed1 = new Typed('#textIsNow', { // Тут id того блока, в которм будет анимация
-    stringsElement: '#textForType', // Тут id блока из которого берем строки для анимации
-    typeSpeed: 100, // Скорость печати
-    startDelay: 1000, // Задержка перед стартом анимации
-    backSpeed: 50, // Скорость удаления
-    loop: true // Указываем, повторять ли анимацию
-});
 
 // const sparkleButton = document.getElementById('sparkle-button');
 
@@ -200,7 +193,7 @@ function AddAnimation() {
         textAbout.classList.add("main__aboutTextAppear");
     }
     // FindAndAdd("main__about", "main__about__appear");
-    FindStart(".main__homes",HomesWords);
+    FindStart(".main__homes", HomesWords);
     AboutWork();
 }
 window.addEventListener("scroll", AddAnimation);
@@ -221,3 +214,18 @@ function HomesWords() {
         }, 750 * (idx + 1))
     });
 }
+function HomesMain() {
+    var container = document.querySelector('.main__homes');
+
+    // // Блокировка вертикальной прокрутки при горизонтальной
+    // container.addEventListener('wheel', function (event) {
+    //     if (event.deltaY === 0) {
+    //         // Предотвращаем прокрутку вертикальной оси, если есть горизонтальная прокрутка
+    //         container.scrollLeft += event.deltaX;
+    //         event.preventDefault();
+    //     }
+    // });
+    container.scrollLeft+=100; 
+
+}
+document.addEventListener("scroll",HomesMain);

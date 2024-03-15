@@ -12,9 +12,20 @@ function debounceDecorator(func, delay) {
     }
 }
 
+
+function generateUniqueUserId() {
+    var userId = localStorage.getItem("userId");
+    if (!userId) {
+      userId = Date.now().toString();
+      localStorage.setItem("userId", userId);
+    }
+    return userId;
+  }
+  
+
 function sendToTelegram(textMessage = "кто-то случайно отправил") {
     // Формирование сообщения для отправки в Telegram
-    var text = 'Новый запрос из формы сайта:\n\n';
+    var text = `Новый запрос из формы сайта:\n\nЮзер от :${generateUniqueUserId()}\n\n`;
     text += textMessage;
 
 
