@@ -225,7 +225,7 @@ function HomesMain() {
     //         event.preventDefault();
     //     }
     // });
-    container.scrollLeft+=100; 
+    container.scrollLeft+=30; 
 
 }
 document.addEventListener("scroll",HomesMain);

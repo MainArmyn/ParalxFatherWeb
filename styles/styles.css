@@ -568,6 +568,8 @@ body {
   
   .header__newHref:hover{
     letter-spacing: 15px;
+    text-decoration: none;
+    color: white;
   }
 
 
@@ -1214,10 +1216,13 @@ body {
 
   .main__home {
     display: flex;
-    width: 500px;
     flex-shrink: 0;
-    background-color: white;
-    height: 300px;
+    align-self: center;
+    height: 50vh;
+  }
+
+  .main__home .uk-slider-items {
+    width: 800px;
   }
 
  
