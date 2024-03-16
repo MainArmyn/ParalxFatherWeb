@@ -1053,7 +1053,6 @@ body {
     animation: gradient 15s ease infinite;
     width: 100%;
   height: 100vh;
-  gap: 500px;
   overflow-x: auto;
   overflow-y: scroll;
   -ms-overflow-style: none;  /* IE10+ */
@@ -1218,14 +1217,15 @@ body {
     display: flex;
     flex-shrink: 0;
     align-self: center;
-    height: 50vh;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .main__home .uk-slider-items {
     width: 800px;
   }
-
- 
-
 
 
