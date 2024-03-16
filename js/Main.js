@@ -228,4 +228,12 @@ function HomesMain() {
     container.scrollLeft+=30; 
 
 }
+function ObjectsSlider() {//просто убиарем написанный заранее цифры мне лень
+    const sliderContainer = document.querySelectorAll(".uk-cover-container");
+    sliderContainer.forEach(el => {
+        let panel = el.querySelector(".uk-panel");
+        panel.style.display = "none";
+    })
+}
 document.addEventListener("scroll",HomesMain);
+ObjectsSlider();
