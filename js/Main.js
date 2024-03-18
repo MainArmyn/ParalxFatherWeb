@@ -80,10 +80,10 @@ function ContainerSlider() {
     var container = document.querySelector('.main__homes');
     var scroller = document.querySelector('.main__homes__scroller');
 
-    container.addEventListener('wheel', function (event) {
-        event.preventDefault();
-        container.scrollLeft += event.deltaY;
-    });
+    // container.addEventListener('wheel', function (event) {
+    //     event.preventDefault();
+    //     container.scrollLeft += event.deltaY;
+    // });
 
     scroller.addEventListener('touchstart', function (event) {
         this.touchstartX = event.touches[0].clientX;
