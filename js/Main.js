@@ -235,5 +235,4 @@ function ObjectsSlider() {//просто убиарем написанный з�
         panel.style.display = "none";
     })
 }
-document.addEventListener("scroll",HomesMain);
 ObjectsSlider();
