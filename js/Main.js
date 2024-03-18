@@ -128,7 +128,7 @@ function FindAndAdd(classToFind, classToAdd) {
     el.forEach(item => {
         let { top, bottom } = item.getBoundingClientRect();
         if (top <= window.innerHeight && bottom >= 0) {
-            item.classList.add(classToAdd)
+            item.classList.add(classToAdd);
         }
     })
 }
@@ -152,6 +152,12 @@ function StarAppear() {
 function ButtonControl(flag) {
     document.querySelector('.header__href').style.display = flag ? "block" : "none";
 }
+function PhoneGo() {
+    const phone  = document.querySelector(".main__botique__phone");
+    phone.onclick = () => {
+        document.location = "https://thebotique.ru";
+    }; 
+}
 // function OneStartAppear() {
 //     [...document.querySelectorAll(".start")].forEach(item => {
 //         if (item.style.display === "none") {
@@ -161,11 +167,12 @@ function ButtonControl(flag) {
 //     })
 // }
 
-
+PhoneGo();
 ParInit(".header__logo");
 ParInit(".header__title");
 ParInit(".header__href");
 ParInit(".word");
+ParInit(".main__botique__phone")
 NewParalax();
 AirplaneDis();
 let typed = new Typed('#typed', { // Тут id того блока, в которм будет анимация
@@ -173,6 +180,13 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
     typeSpeed: 100, // Скорость печати
     startDelay: 2000, // Задержка перед стартом анимации
     backSpeed: 50, // Скорость удаления
+    loop: true // Указываем, повторять ли анимацию
+});
+let typed1 = new Typed('#mainBotAbout', { // Тут id того блока, в которм будет анимация
+    stringsElement: '#hidden', // Тут id блока из которого берем строки для анимации
+    typeSpeed: 20, // Скорость печати
+    startDelay: 400, // Задержка перед стартом анимации
+    backSpeed: 10, // Скорость удаления
     loop: true // Указываем, повторять ли анимацию
 });
 
@@ -185,6 +199,16 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
 // sparkleButton.addEventListener('mouseup', function () {
 //   sparkleButton.classList.remove('active');
 // });
+// function BotiqueTyping() {
+//     let typed1 = new Typed('#mainBotAbout', { // Тут id того блока, в которм будет анимация
+//         stringsElement: '#hidden', // Тут id блока из которого берем строки для анимации
+//         typeSpeed: 20, // Скорость печати
+//         startDelay: 400, // Задержка перед стартом анимации
+//         backSpeed: 10, // Скорость удаления
+//         loop: true // Указываем, повторять ли анимацию
+//     });
+    
+// }
 function AddAnimation() {
     const imgAreaAbout = document.querySelector(".main__about__img-container");
     const textAbout = document.querySelector(".main__about__text");
@@ -192,7 +216,7 @@ function AddAnimation() {
         imgAreaAbout.classList.add("main__aboutImgAppear");
         textAbout.classList.add("main__aboutTextAppear");
     }
-    // FindAndAdd("main__about", "main__about__appear");
+    FindAndAdd("main__botique", "main__botiqueAppear");
     FindStart(".main__homes", HomesWords);
     AboutWork();
 }

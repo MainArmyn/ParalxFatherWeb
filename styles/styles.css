@@ -50,6 +50,10 @@
     }
 }
 
+.visualy-hidden {
+  transform: scale(0);
+}
+
 .main__aboutImgAppear {
     animation-name: FromLeft;
     animation-duration: 3s;
@@ -58,6 +62,11 @@
 .main__aboutTextAppear {
     animation-name: FromRight;
     animation-duration: 3s;
+}
+
+.main__botiqueAppear {
+  animation-name: FromBottom;
+  animation-duration: 1000;
 }
 
 @media (max-width: 400px) {
@@ -1321,6 +1330,178 @@ body {
     margin-top: 5px;
     border-radius: 10px;
   }
+
+  .main__botique {
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #167aab;
+    width: 100%;
+    padding: 0px 40px 0px 40px;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .main__botique__title {
+    position: relative;
+    text-transform: uppercase;
+    color: black;
+    margin-top: 20px;
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    z-index: 5;
+  }
+
+  .main__botique__title__logo {
+    font-weight: 800;
+    display: flex;
+    color: black;
+    margin-left: 15px;
+    align-items: flex-start;
+    font-size: 45px;
+  }
+
+  .main__botique__title__logo:hover {
+    text-decoration: none;
+  }
+
+  .main__botique__title__logo::after {
+    content: "";
+    display: inline-block;
+    width: 45px;
+    height: 56px;
+    margin-left: 10px;
+    background-image: url("../assets/logoBot.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .bg-wrap {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 4;
+    left: 0 !important;
+    bottom: 0 !important;
+  }
+
+  .main__botique__text {
+    backdrop-filter: blur(100px);
+    font-family: "Titillium", Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: black;
+    font-style: italic;
+    font-weight: 600;
+    position: relative;
+    z-index: 5;
+  }
+
+  .main__botique__phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    position: relative;
+    justify-self: flex-end;
+    cursor: pointer;
+    height: 500px;
+    padding: 30px;
+    width: 600px;
+    align-self: center;
+    color: black;
+    margin-bottom: -100px;
+    z-index: 5;
+    border: 1px solid #000000;
+   backdrop-filter: blur(100px);
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+    animation: anim-ramka-1 10s infinite;
+    font-family: 'Roboto', sans-serif; 
+}
+@keyframes anim-ramka-1 {
+    0% {
+        border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+        box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+    }
+    25% {
+        border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
+    }
+    50% {
+        border-radius: 50% 50% 33% 67%/55% 27% 73% 45%;
+        box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
+    }
+    75% {
+        border-radius: 33% 67% 58% 42%/63% 68% 32% 37%;
+    }
+}
+
+.main__botique__phone img {
+  width: 300px;
+  margin-bottom: -70px;
+  height: 400px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 40px;
+  background-color: #4c79d4;
+  gap: 20px;
+  color: white;
+  font-family: "Titillium", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.footer a {
+  font-size: 22px;
+  font-style: italic;
+  color: white;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: purple;
+  transition: 200ms;
+}
+
+
+.footer__hrefs {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__hrefs a:nth-child(1) {
+  border-radius: 100%;
+  background-image: url("../assets/whatsapp.png");
+  background-position: center;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-size: 50px 50px;
+}
+
+.footer__hrefs a:nth-child(2) {
+  border-radius: 100%;
+  background-image: url("../assets/icons8-telegram-48.png");
+  background-position: center;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-size: 50px 50px;
+}
+ 
+
+
+
 
 
 
