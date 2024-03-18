@@ -125,5 +125,17 @@ function ChatGpd() {
             }, 1000);
         };
     });
+    chatInput.addEventListener("focus", () => {
+        return () => {
+            function zoomOutMobile() {
+                var viewport = document.querySelector('meta[name="viewport"]');
+                if ( viewport ) {
+                  viewport.content = "initial-scale=1.0";
+                  viewport.content = "width=device-width";
+                }
+              }
+              zoomOutMobile();
+        }
+    })
 }
 ChatGpd();
