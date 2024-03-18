@@ -76,6 +76,26 @@ function AboutWork() {
     }, 2000);
     AboutMove();
 }
+function ContainerSlider() {
+    var container = document.querySelector('.main__homes');
+    var scroller = document.querySelector('.main__homes__scroller');
+
+    container.addEventListener('wheel', function (event) {
+        event.preventDefault();
+        container.scrollLeft += event.deltaY;
+    });
+
+    scroller.addEventListener('touchstart', function (event) {
+        this.touchstartX = event.touches[0].clientX;
+    });
+
+    scroller.addEventListener('touchmove', function (event) {
+        var touchX = event.touches[0].clientX;
+        var diffX = this.touchstartX - touchX;
+        this.scrollLeft += diffX;
+    });
+}
+ContainerSlider();
 function ParInit(name) {
     const element = document.querySelector(name);
 
@@ -153,10 +173,10 @@ function ButtonControl(flag) {
     document.querySelector('.header__href').style.display = flag ? "block" : "none";
 }
 function PhoneGo() {
-    const phone  = document.querySelector(".main__botique__phone");
+    const phone = document.querySelector(".main__botique__phone");
     phone.onclick = () => {
         document.location = "https://thebotique.ru";
-    }; 
+    };
 }
 // function OneStartAppear() {
 //     [...document.querySelectorAll(".start")].forEach(item => {
@@ -207,7 +227,7 @@ let typed1 = new Typed('#mainBotAbout', { // Тут id того блока, в �
 //         backSpeed: 10, // Скорость удаления
 //         loop: true // Указываем, повторять ли анимацию
 //     });
-    
+
 // }
 function AddAnimation() {
     const imgAreaAbout = document.querySelector(".main__about__img-container");
@@ -249,7 +269,7 @@ function HomesMain() {
     //         event.preventDefault();
     //     }
     // });
-    container.scrollLeft+=30; 
+    container.scrollLeft += 30;
 
 }
 function ObjectsSlider() {//просто убиарем написанный заранее цифры мне лень
