@@ -76,26 +76,30 @@ function AboutWork() {
     }, 2000);
     AboutMove();
 }
-function ContainerSlider() {
-    var container = document.querySelector('.main__homes');
-    var scroller = document.querySelector('.main__homes__scroller');
-
-    // container.addEventListener('wheel', function (event) {
-    //     event.preventDefault();
-    //     container.scrollLeft += event.deltaY;
-    // });
-
-    scroller.addEventListener('touchstart', function (event) {
-        this.touchstartX = event.touches[0].clientX;
+(function() {
+    var slider = document.querySelector('.main__homes');
+    var items = document.querySelector('.main__homes__scroller');
+    var startX = null;
+    var translation = 0;
+  
+    slider.addEventListener('touchstart', function(event) {
+      startX = event.touches[0].clientX;
+      translation = parseFloat(items.style.transform.replace('translateX(', ''));
     });
-
-    scroller.addEventListener('touchmove', function (event) {
-        var touchX = event.touches[0].clientX;
-        var diffX = this.touchstartX - touchX;
-        this.scrollLeft += diffX;
+  
+    slider.addEventListener('touchmove', function(event) {
+      if (!startX) return;
+      var touchX = event.touches[0].clientX;
+      var diffX = startX - touchX;
+      var newTranslation = translation - diffX;
+      items.style.transform = 'translateX(' + newTranslation + 'px)';
     });
-}
-ContainerSlider();
+  
+    slider.addEventListener('touchend', function() {
+      startX = null;
+    });
+  })();
+  
 function ParInit(name) {
     const element = document.querySelector(name);
 

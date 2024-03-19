@@ -1165,17 +1165,15 @@ body {
     animation: gradient 15s ease infinite;
     width: 100%;
   height: 100vh;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
-  -ms-overflow-style: none;  /* IE10+ */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;  /* Firefox */
   }
 
   .main__homes__scroller {
       display: flex;
-      scroll-snap-align: start;
+      transition: transform 0.4s ease-in-out;
+
   }
 
   .main__homes::-webkit-scrollbar {
@@ -1199,7 +1197,6 @@ body {
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    scroll-snap-stop: always;
     width: 100vw;
     height: 100%;
     align-items: center;
@@ -1334,8 +1331,8 @@ body {
     display: flex;
     flex-shrink: 0;
     align-self: center;
+    margin: 30px;
     margin-top: 20px;
-    scroll-snap-stop: always;
     flex-direction: column;
     align-items: center;
     justify-content: center;
