@@ -1192,13 +1192,13 @@ body {
     }
 }
 
+
 .main__homes__title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    width: 100vw;
-    height: 100%;
+    height: 100vh;
     align-items: center;
 }
 

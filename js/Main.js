@@ -76,28 +76,15 @@ function AboutWork() {
     }, 2000);
     AboutMove();
 }
-(function() {
-    var slider = document.querySelector('.main__homes');
-    var items = document.querySelector('.main__homes__scroller');
-    var startX = null;
-    var translation = 0;
-  
-    slider.addEventListener('touchstart', function(event) {
-      startX = event.touches[0].clientX;
-    });
-  
-    slider.addEventListener('touchmove', function(event) {
-      if (!startX) return;
-      var touchX = event.touches[0].clientX;
-      var diffX = startX - touchX;
-      var newTranslation = translation - diffX;
-      items.scrollLeft += newTranslation => 100 ? 200:0;
-    });
-  
-    slider.addEventListener('touchend', function() {
-      startX = null;
-    });
-  })();
+function UikitLive() {
+    const slider = document.querySelector(".main__homes__slider");
+    let jsx = ` <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>`;
+    if (window.innerWidth >= 851) {
+        slider.innerHTML+=jsx; 
+    }
+}
+UikitLive();
   
 function ParInit(name) {
     const element = document.querySelector(name);
