@@ -84,7 +84,6 @@ function AboutWork() {
   
     slider.addEventListener('touchstart', function(event) {
       startX = event.touches[0].clientX;
-      translation = parseFloat(items.style.transform.replace('translateX(', ''));
     });
   
     slider.addEventListener('touchmove', function(event) {
@@ -92,7 +91,7 @@ function AboutWork() {
       var touchX = event.touches[0].clientX;
       var diffX = startX - touchX;
       var newTranslation = translation - diffX;
-      items.style.transform = 'translateX(' + newTranslation + 'px)';
+      items.scrollLeft += newTranslation => 100 ? 200:0;
     });
   
     slider.addEventListener('touchend', function() {
