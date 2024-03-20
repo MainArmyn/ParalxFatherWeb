@@ -76,15 +76,7 @@ function AboutWork() {
     }, 2000);
     AboutMove();
 }
-function UikitLive() {
-    const slider = document.querySelector(".main__homes__slider");
-    let jsx = ` <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>`;
-    if (window.innerWidth >= 851) {
-        slider.innerHTML+=jsx; 
-    }
-}
-UikitLive();
+
   
 function ParInit(name) {
     const element = document.querySelector(name);
@@ -192,13 +184,7 @@ let typed = new Typed('#typed', { // Тут id того блока, в кото�
     backSpeed: 50, // Скорость удаления
     loop: true // Указываем, повторять ли анимацию
 });
-let typed1 = new Typed('#mainBotAbout', { // Тут id того блока, в которм будет анимация
-    stringsElement: '#hidden', // Тут id блока из которого берем строки для анимации
-    typeSpeed: 20, // Скорость печати
-    startDelay: 400, // Задержка перед стартом анимации
-    backSpeed: 10, // Скорость удаления
-    loop: true // Указываем, повторять ли анимацию
-});
+
 
 // const sparkleButton = document.getElementById('sparkle-button');
 
