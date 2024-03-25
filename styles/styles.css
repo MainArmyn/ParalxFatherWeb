@@ -678,6 +678,27 @@ body {
     justify-content: center;
 }
 
+.main__about .main__about__town-move:nth-child(1) {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  bottom: -10vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 150vh;
+  z-index: 9;
+}
+
+.main__about .main__about__town-move:nth-child(2) {
+  position: absolute;
+  right: 0;
+  bottom: -10vw;
+  width: 100vw;
+  height: 150vh;
+  z-index: 9;
+}
+
+
+
 
 
 .main__about__text {

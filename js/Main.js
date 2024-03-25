@@ -9,7 +9,7 @@ function AirplaneDis() {
             hour: "2-digit",
             minute: "2-digit",
         });
-        setTimeout(ButtonControl, 5000, true);
+        setTimeout(ButtonControl, 3000, true);
         HeaderWork();
     })
 }
@@ -22,7 +22,7 @@ function HeaderWork() {
         logo.style.display = "block";
         title.style.display = "block";
         StarAppear();
-    }, 2000);
+    }, 1000);
 }
 function AboutWork() {
     function AboutMove() {
