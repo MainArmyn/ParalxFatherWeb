@@ -1,5 +1,6 @@
 let timerImgArea = 0;
 let timerTextArea = 0;
+let flagTown = false;
 function AirplaneDis() {
     document.addEventListener("DOMContentLoaded", () => {
         StarDisappear();
@@ -24,34 +25,76 @@ function HeaderWork() {
         StarAppear();
     }, 1000);
 }
+function shiftAndHide(element) {
+    // Устанавливаем начальное значение margin-left элемента
+    element.style.marginLeft = '0';
+  
+    // Задаем интервал, в котором будем изменять значение margin-left
+    let interval = setInterval(() => {
+      let marginLeft = parseInt(element.style.marginLeft);
+  
+      // Постепенно смещаем элемент влево на 10 пикселей
+      marginLeft -= 10;
+      element.style.marginLeft = marginLeft + 'px';
+  
+      // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
+      if (marginLeft <= -900) {
+        clearInterval(interval);
+        element.style.display = 'none';
+      }
+    },30); // Задержка выполнения в миллисекундах (можно изменить значение для более плавной анимации)
+  }
+  function shiftAndHideRight(element) {
+    // Устанавливаем начальное значение margin-right элемента
+    element.style.marginRight = '0';
+  
+    // Задаем интервал, в котором будем изменять значение margin-right
+    let interval = setInterval(() => {
+      let marginRight = parseInt(element.style.marginRight);
+  
+      // Постепенно смещаем элемент вправо на 10 пикселей
+      marginRight -= 10;
+      element.style.marginRight = marginRight + 'px';
+  
+      // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
+      if (marginRight <= -900) {
+        clearInterval(interval);
+        element.style.display = 'none';
+      }
+    }, 30); // Задержка выполнения в миллисекундах (можно изменить значение для более плавной анимации)
+  }
+  
+  
 function AboutWork() {
     function AboutMove() {
         const goBtn = document.querySelector(".main__about__go-btn");
-        if (window.innerWidth <= 850) {
-            goBtn.style.display = "none";
-        }
-        const imgArea = document.querySelector(".main__about__img-container");
-        const textArea = document.querySelector(".main__about__text");
+        const imgArea = [...document.querySelectorAll(".main__about__town-move")][0];
+        const textArea = [...document.querySelectorAll(".main__about__town-move")][1];
+        const area = document.querySelector(".main__about");
         const scrollHeight = document.documentElement.scrollTop;
-        if (isElementFullyVisible(imgArea) === false && isElementFullyVisible(textArea) === false) {
-            timerImgArea += 30;
-            timerTextArea += 30;
-            goBtn.style.display = "none";
-            imgArea.style.transform = `translateX(-${timerImgArea}px)`;
-            textArea.style.transform = `translateX(${timerTextArea}px)`;
+        if (isElementFullyVisible(area) === true) {
+            if (flagTown === false) {
+                setTimeout(() => {
+                    shiftAndHide(imgArea);
+                    shiftAndHideRight(textArea);
+                   },800);
+                flagTown = true;
+                return;
+            }
+            return;
 
         } else {
-            textArea.style.transform = "none";
-            if (window.innerWidth <= 850) {
-                goBtn.style.display = "none";
-            } else {
-                goBtn.style.display = "block";
-            }
-            imgArea.style.transform = "none";
             timerImgArea = 0;
             timerTextArea = 0;
         }
     }
+    // function Town() {
+    //     let left = [...document.querySelectorAll(".main__about__town-move")][0];
+    //     let right = [...document.querySelectorAll(".main__about__town-move")][1];
+    //     if (isElementFullyVisible(left) && isElementFullyVisible(right)) {
+    //         left
+    //     }
+    // }
     function ParseTransForm(el) {
         var transformValue = el.style.transform;
         var translateXIndex = transformValue.indexOf("translateX");
@@ -169,12 +212,12 @@ function PhoneGo() {
 //     })
 // }
 
-PhoneGo();
+// PhoneGo();
 ParInit(".header__logo");
 ParInit(".header__title");
 ParInit(".header__href");
 ParInit(".word");
-ParInit(".main__botique__phone")
+// ParInit(".main__botique__phone");
 NewParalax();
 AirplaneDis();
 let typed = new Typed('#typed', { // Тут id того блока, в которм будет анимация

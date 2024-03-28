@@ -152,6 +152,15 @@
         color: white;
       }
 
+      .main__homes__title {
+        animation: shiftBackgroundMobile 4s infinite alternate;
+      }
+
+
+    .main__about .main__about__town-move {
+      bottom: -30vw;
+    }
+
       .word span {
         font-size: 30px;
       }
@@ -215,6 +224,11 @@
         height: 300px;
     }
 
+
+    .main__about .main__about__town-move {
+      bottom: -30vw;
+    }
+
     .popup-error {
         font-size: 14px;
         width: 150px;
@@ -251,9 +265,14 @@
         font-size: 50px;
       }
 
+      .main__homes__title {
+        animation: shiftBackgroundMobile 4s infinite alternate;
+      }
+
       .main__homes__title__text {
         font-size: 20px;
       }
+      
     
     
 }
@@ -293,6 +312,11 @@
         height: 500px;
     }
 
+    
+    .main__about .main__about__town-move {
+      bottom: -15vw;
+    }
+
     .popup-error {
         width: 300px;
         top: 10px;
@@ -322,6 +346,10 @@
 
       .word span {
         font-size: 80px;
+      }
+
+      .main__homes__title {
+        animation: shiftBackground 4s infinite alternate;
       }
 
       
@@ -357,6 +385,10 @@
         height: 500px;
     }
 
+    .main__about .main__about__town-move {
+      bottom: -10vw;
+    }
+
     .popup-error {
         width: 300px;
         top: 10px;
@@ -389,6 +421,10 @@
 
       .main__homes__title__text {
         font-size: 27px;
+      }
+
+      .main__homes__title {
+        animation: shiftBackground 4s infinite alternate;
       }
     
 
@@ -682,8 +718,6 @@ body {
   position: absolute;
   left: 0;
   width: 100vw;
-  bottom: -10vw;
-  background-color: rgba(0, 0, 0, 0.4);
   height: 150vh;
   z-index: 9;
 }
@@ -691,10 +725,40 @@ body {
 .main__about .main__about__town-move:nth-child(2) {
   position: absolute;
   right: 0;
-  bottom: -10vw;
+  transition-property: transform;
   width: 100vw;
   height: 150vh;
   z-index: 9;
+}
+
+@keyframes Goright {
+  0% {
+    margin-left: 0px;
+  }
+
+  100% {
+   margin-left: -800px;
+  }
+}
+
+@keyframes Goleft {
+  0% {
+    right: 0px;
+  }
+
+  100% {
+    right: -800px;
+  }
+}
+
+.town-go-rigth {
+  animation-name: Goleft;
+  animation-duration: 2000;
+}
+
+.town-go-left {
+  animation-duration: 2000;
+  animation-name: Goright;
 }
 
 
@@ -1191,11 +1255,6 @@ body {
   scrollbar-width: none;  /* Firefox */
   }
 
-  .main__homes__scroller {
-      display: flex;
-      transition: transform 0.4s ease-in-out;
-
-  }
 
   .main__homes::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
@@ -1213,6 +1272,30 @@ body {
     }
 }
 
+@keyframes shiftBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 -20px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes shiftBackgroundMobile {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -10px -10px;
+  }
+}
+
+
+
+
 
 .main__homes__title {
     display: flex;
@@ -1220,14 +1303,32 @@ body {
     justify-content: center;
     flex-shrink: 0;
     width: 100%;
+    position: relative;
+    background-image: url("../assets/150908120431.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(9, 90, 240, 0.3);
     height: 100vh;
     align-items: center;
+}
+
+.main__homes__title::after {
+  content: "";
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #001aff;
+  opacity: 0.35;
+  position: absolute;
 }
 
 
 .main__homes__title__text {
     color: white;
     display: flex;
+    position: relative;
+    z-index: 4;
     margin-top: 40px;
     font-family: "Titillium", Arial, Helvetica, sans-serif;
 }
@@ -1236,6 +1337,8 @@ body {
   .word {
     font-family: "Titillium", Arial, Helvetica, sans-serif;
     perspective: 1000px; 
+    position: relative;
+    z-index: 4;
     color: white;
   }
   
