@@ -25,59 +25,134 @@ function HeaderWork() {
         StarAppear();
     }, 1000);
 }
+function HomesZoom() {
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const btn3 = document.getElementById('btn3');
+    const backBtns = document.querySelectorAll('#back-btn');
+    // Функция для обработки клика на кнопке
+    function zoomAndChangeContent(buttonId) {
+        // Получение позиции кнопки
+        const number = buttonId.slice(3);
+        const button = document.getElementById(buttonId);
+        const rect = button.getBoundingClientRect();
+        const zoomedContent = document.getElementById('zoomed-content'+number);
+        const positionX = rect.left + rect.width / 2;
+        const positionY = rect.top + rect.height / 2;
+
+        // Плавное приближение изображения
+        document.querySelector(".main__homes__back").style.transformOrigin = `${positionX}px ${positionY}px`;
+        document.querySelector(".main__homes__back").style.transform = 'scale(5)';
+
+        // Изменение контента
+        setTimeout(() => {
+            zoomedContent.classList.remove('hidden');
+            document.querySelector(".main__homes__title").classList.add("hidden");
+        },900);
+    }
+
+    // Обработчики кликов на кнопках
+    btn1.addEventListener('click', () => {
+        zoomAndChangeContent('btn1');
+    });
+
+    btn2.addEventListener('click', () => {
+        zoomAndChangeContent('btn2');
+    });
+
+    btn3.addEventListener('click', () => {
+        zoomAndChangeContent('btn3');
+    });
+
+    // Обработчик клика на кнопке "Вернуться назад"
+    [...backBtns].forEach(el => {
+        el.addEventListener('click', () => {
+            document.querySelector(".main__homes__title").classList.remove('hidden');
+            document.querySelector(".main__homes__back").style.transform = 'scale(5)';
+            setTimeout(() => {
+                document.querySelector(".main__homes__back").style.transform = 'scale(1)';
+            },200);
+            [...document.querySelectorAll(".main__home-container")].forEach(el => el.classList.add("hidden"));
+        });
+    });
+
+}
+HomesZoom();
 function shiftAndHide(element) {
     // Устанавливаем начальное значение margin-left элемента
     element.style.marginLeft = '0';
-  
+
     // Задаем интервал, в котором будем изменять значение margin-left
     let interval = setInterval(() => {
-      let marginLeft = parseInt(element.style.marginLeft);
-  
-      // Постепенно смещаем элемент влево на 10 пикселей
-      marginLeft -= 10;
-      element.style.marginLeft = marginLeft + 'px';
-  
-      // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
-      if (marginLeft <= -900) {
-        clearInterval(interval);
-        element.style.display = 'none';
-      }
-    },30); // Задержка выполнения в миллисекундах (можно изменить значение для более плавной анимации)
-  }
-  function shiftAndHideRight(element) {
+        let marginLeft = parseInt(element.style.marginLeft);
+
+        // Постепенно смещаем элемент влево на 10 пикселей
+        marginLeft -= 10;
+        element.style.marginLeft = marginLeft + 'px';
+
+        // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
+        if (marginLeft <= -900) {
+            clearInterval(interval);
+            element.style.display = 'none';
+        }
+    }, 30); // Задержка выполнения в миллисекундах (можно изменить значение для более плавной анимации)
+}
+function shiftAndHideRight(element) {
     // Устанавливаем начальное значение margin-right элемента
     element.style.marginRight = '0';
-  
+
     // Задаем интервал, в котором будем изменять значение margin-right
     let interval = setInterval(() => {
-      let marginRight = parseInt(element.style.marginRight);
-  
-      // Постепенно смещаем элемент вправо на 10 пикселей
-      marginRight -= 10;
-      element.style.marginRight = marginRight + 'px';
-  
-      // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
-      if (marginRight <= -900) {
-        clearInterval(interval);
-        element.style.display = 'none';
-      }
+        let marginRight = parseInt(element.style.marginRight);
+
+        // Постепенно смещаем элемент вправо на 10 пикселей
+        marginRight -= 10;
+        element.style.marginRight = marginRight + 'px';
+
+        // Если достигли нужного смещения, прекращаем анимацию и скрываем элемент
+        if (marginRight <= -900) {
+            clearInterval(interval);
+            element.style.display = 'none';
+        }
     }, 30); // Задержка выполнения в миллисекундах (можно изменить значение для более плавной анимации)
-  }
-  
-  
+}
+
+function fadeOut(element) {
+    var opacity = 1;
+    var timer = setInterval(function () {
+        if (opacity <= 0.1) {
+            clearInterval(timer);
+            element.style.display = "none";
+        }
+        element.style.opacity = opacity;
+        opacity -= opacity * 0.1;
+    }, 50);
+}
+
 function AboutWork() {
     function AboutMove() {
         const goBtn = document.querySelector(".main__about__go-btn");
         const imgArea = [...document.querySelectorAll(".main__about__town-move")][0];
         const textArea = [...document.querySelectorAll(".main__about__town-move")][1];
+        const therd = [...document.querySelectorAll(".main__about__town-move")][2];
+        const fourht = [...document.querySelectorAll(".main__about__town-move")][3];
         const area = document.querySelector(".main__about");
+        const aboutBack = document.querySelector(".main__about__town-back");
         const scrollHeight = document.documentElement.scrollTop;
         if (isElementFullyVisible(area) === true) {
             if (flagTown === false) {
                 setTimeout(() => {
                     shiftAndHide(imgArea);
                     shiftAndHideRight(textArea);
-                   },800);
+                    // shiftAndHide(therd);
+                    // shiftAndHideRight(fourht);
+                    fadeOut(therd);
+                    fadeOut(fourht);
+                }, 850);
+
+                setTimeout(() => {
+                    fadeOut(aboutBack);
+                }, 1200);
                 flagTown = true;
                 return;
             }
@@ -120,7 +195,7 @@ function AboutWork() {
     AboutMove();
 }
 
-  
+
 function ParInit(name) {
     const element = document.querySelector(name);
 
