@@ -26,6 +26,17 @@ function HeaderWork() {
     }, 1000);
 }
 function HomesZoom() {
+    function ContBtns(flag) {
+        if (flag) {
+            btn1.style.display = "none";
+            btn2.style.display = "none";
+            btn3.style.display = "none";
+        } else {
+            btn1.style.display = "block";
+            btn2.style.display = "block";
+            btn3.style.display = "block";
+        }
+    }
     const btn1 = document.getElementById('btn1');
     const btn2 = document.getElementById('btn2');
     const btn3 = document.getElementById('btn3');
@@ -41,14 +52,16 @@ function HomesZoom() {
         const positionY = rect.top + rect.height / 2;
 
         // Плавное приближение изображения
+        ContBtns(true);
         document.querySelector(".main__homes__back").style.transformOrigin = `${positionX}px ${positionY}px`;
-        document.querySelector(".main__homes__back").style.transform = 'scale(5)';
+        document.querySelector(".main__homes__back").style.transform = 'scale(6)';
 
         // Изменение контента
         setTimeout(() => {
             zoomedContent.classList.remove('hidden');
+            ContBtns(false);
             document.querySelector(".main__homes__title").classList.add("hidden");
-        },900);
+        },700);
     }
 
     // Обработчики кликов на кнопках
@@ -68,10 +81,11 @@ function HomesZoom() {
     [...backBtns].forEach(el => {
         el.addEventListener('click', () => {
             document.querySelector(".main__homes__title").classList.remove('hidden');
-            document.querySelector(".main__homes__back").style.transform = 'scale(5)';
+            document.querySelector(".main__homes__back").style.transform = 'scale(6)';
             setTimeout(() => {
                 document.querySelector(".main__homes__back").style.transform = 'scale(1)';
             },200);
+            ContBtns(false);
             [...document.querySelectorAll(".main__home-container")].forEach(el => el.classList.add("hidden"));
         });
     });
@@ -291,7 +305,6 @@ function PhoneGo() {
 ParInit(".header__logo");
 ParInit(".header__title");
 ParInit(".header__href");
-ParInit(".word");
 // ParInit(".main__botique__phone");
 NewParalax();
 AirplaneDis();
