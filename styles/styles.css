@@ -209,6 +209,10 @@
         font-size: 18px;
     }
 
+    .header__menu {
+      display: none;
+    }
+
     .main__about {
         flex-direction: column-reverse;
         /* overflow: hidden; */
@@ -294,6 +298,10 @@
         background-position: center;
     }
 
+    .header__bruger {
+      display: none;
+    }
+
 
     .header__background {
         display: none;
@@ -377,6 +385,10 @@
         font-size: 45px;
     }
 
+    .header__bruger {
+      display: none;
+    }
+
     .paralax-layer {
        margin-bottom: -30px;
     }
@@ -450,6 +462,67 @@ body {
     animation-duration: 4s;
 }
 
+.header__burger__menu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.header__burger__menu ul {
+  list-style: none;
+  margin-top: 200px;
+  gap: 40px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.header__burger__menu ul li a {
+  color: white;
+  font-size: 25px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 12px;
+}
+
+.header__burger__menu ul li a::after {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 2px;
+  background-color: white;
+}
+
+.header__burger__menu__close-btn {
+  position: absolute;
+  top: 20px;
+  width: 60px;
+  border: none;
+  height: 60px;
+  background-image: url("../assets/icons8-крестик-78.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  left: 20px;
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -495,7 +568,20 @@ body {
     bottom: -100px;
 }
 
-
+.header__bruger {
+  background-color: transparent;
+  border: none;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 5;
+  cursor: pointer;
+  background-image: url("../assets/icons8-меню-48.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 
 .header .star:nth-child(1) {
@@ -1373,6 +1459,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow-y: hidden;
     width: 100%;
   height: 100vh;
   scrollbar-width: none;  /* Firefox */
@@ -1384,7 +1471,7 @@ body {
     right: 0;
     width: 100%;
     height: 100vh;
-    transform: scale(-1.25);
+    transform: scale(-1.28);
     z-index: 9;
     left: 0;
     bottom: 0;

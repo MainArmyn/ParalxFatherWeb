@@ -321,6 +321,18 @@ function StarAppear() {
 function ButtonControl(flag) {
     document.querySelector('.header__href').style.display = flag ? "block" : "none";
 }
+function BurgerControl() {
+    const burger = document.querySelector(".header__bruger");
+    const menu = document.querySelector(".header__burger__menu");
+    const close = document.querySelector(".header__burger__menu__close-btn");
+    burger.onclick = () => {
+        menu.classList.remove("hidden");
+    };
+    close.onclick = () => {
+        menu.classList.add("hidden");
+    };
+}
+BurgerControl();
 function PhoneGo() {
     const phone = document.querySelector(".main__botique__phone");
     phone.onclick = () => {
