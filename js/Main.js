@@ -1,6 +1,7 @@
 let timerImgArea = 0;
 let timerTextArea = 0;
 let flagTown = false;
+let flagHomes = false;
 function AirplaneDis() {
     document.addEventListener("DOMContentLoaded", () => {
         StarDisappear();
@@ -54,7 +55,7 @@ function HomesZoom() {
         // Плавное приближение изображения
         ContBtns(true);
         document.querySelector(".main__homes__back").style.transformOrigin = `${positionX}px ${positionY}px`;
-        document.querySelector(".main__homes__back").style.transform = 'scale(6)';
+        document.querySelector(".main__homes__back").style.transform = 'scale(7)';
 
         // Изменение контента
         setTimeout(() => {
@@ -81,7 +82,7 @@ function HomesZoom() {
     [...backBtns].forEach(el => {
         el.addEventListener('click', () => {
             document.querySelector(".main__homes__title").classList.remove('hidden');
-            document.querySelector(".main__homes__back").style.transform = 'scale(6)';
+            document.querySelector(".main__homes__back").style.transform = 'scale(7)';
             setTimeout(() => {
                 document.querySelector(".main__homes__back").style.transform = 'scale(1)';
             },200);
@@ -142,7 +143,41 @@ function fadeOut(element) {
         opacity -= opacity * 0.1;
     }, 50);
 }
-
+function HomesTown() {
+    function fadeOut(element) {
+        var opacity = 1;
+        var timer = setInterval(function () {
+            if (opacity <= 0.1) {
+                clearInterval(timer);
+                element.style.display = "none";
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 40);
+    }
+    function isElementHalfVisible(element) {
+        var elementTop = element.getBoundingClientRect().top;
+        var elementBottom = element.getBoundingClientRect().bottom;
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+        var isVisible = elementTop < windowHeight && elementBottom >= 0;
+        var isHalfVisible = (elementTop >= 0 && elementTop <= windowHeight / 2) ||
+                            (elementBottom >= 0 && elementBottom <= windowHeight / 2);
+      
+        return isVisible && isHalfVisible;
+      }
+    if (flagHomes === true) {
+        return;
+    }
+    const area = document.querySelector(".main__homes");
+    const img = document.querySelector(".main__homes__town");
+    if (isElementHalfVisible(area) === true) {
+        flagHomes = true;
+        setTimeout(() => {
+            fadeOut(img);
+        },800);
+    }
+}
 function AboutWork() {
     function AboutMove() {
         const goBtn = document.querySelector(".main__about__go-btn");
@@ -343,6 +378,7 @@ function AddAnimation() {
         imgAreaAbout.classList.add("main__aboutImgAppear");
         textAbout.classList.add("main__aboutTextAppear");
     }
+    HomesTown();
     FindAndAdd("main__botique", "main__botiqueAppear");
     FindStart(".main__homes", HomesWords);
     AboutWork();

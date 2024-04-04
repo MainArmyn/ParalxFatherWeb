@@ -1372,9 +1372,22 @@ body {
     animation: gradient 15s ease infinite;
     align-items: center;
     justify-content: center;
+    position: relative;
     width: 100%;
   height: 100vh;
   scrollbar-width: none;  /* Firefox */
+  }
+
+  .main__homes__town {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    transform: scale(-1.25);
+    z-index: 9;
+    left: 0;
+    bottom: 0;
   }
 
 
@@ -1436,10 +1449,13 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  transition: transform 0.5s ease;
+  transition: transform 0.9s ease;
   width: 100vw;
   height: 100vh;
 }
+
+
+
 
 .btn-position {
   background-image: url("../assets/free-icon-home-720.png");
