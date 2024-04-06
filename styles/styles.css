@@ -462,19 +462,29 @@ body {
     animation-duration: 4s;
 }
 
+
+
 .header__burger__menu {
   width: 100vw;
   height: 100vh;
   display: flex;
+  background-color: #2671c6;
   align-items: flex-start;
-  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 12;
   right: 0;
   left: 0;
   bottom: 0;
   justify-content: center;
+}
+
+@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))  {
+  .header__burger__menu {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: none;
+  }
 }
 
 .header__burger__menu ul {
@@ -576,6 +586,8 @@ body {
   position: absolute;
   right: 20px;
   top: 20px;
+  /* box-shadow: 0px 0px 10px 10px rgba(4, 69, 246, 0.75); */
+  border-radius: 10px;
   z-index: 5;
   cursor: pointer;
   background-image: url("../assets/icons8-меню-48.png");
@@ -1913,6 +1925,49 @@ body {
   margin-bottom: -70px;
   height: 400px;
 }
+
+
+
+@keyframes moveBackground {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -100%;
+  }
+}
+
+
+
+.main__hallOfHame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100vh;
+  background-color: #fbfbfb;
+  background-image: url('../assets/IMG_1570.jpg');
+  background-size: 70vh 80%;
+  animation: moveBackground 35s linear infinite;
+}
+
+.main__hallOfHame__title {
+  color: rgb(0, 123, 255);
+  text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF, 0 0 40px #00BFFF;
+  font-family: "Titillium", Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 600;
+  margin: 20px;
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
 
 .footer {
   display: flex;
