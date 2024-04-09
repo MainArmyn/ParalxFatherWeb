@@ -175,7 +175,7 @@ function HomesTown() {
         flagHomes = true;
         setTimeout(() => {
             fadeOut(img);
-        },800);
+        },1000);
     }
 }
 function AboutWork() {

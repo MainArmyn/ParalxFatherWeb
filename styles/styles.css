@@ -1557,18 +1557,18 @@ body {
 
 
 .btn-position {
-  background-image: url("../assets/free-icon-home-720.png");
+  background-image: url("../assets/free-icon-home-1057118.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 50px;
   font-size: 24px;
   text-align: center;
   cursor: pointer;
-  color: white;
+  color:  black;
   border: none;
   background-color: transparent;
-  outline: 1px solid black;
-  outline-offset: 5px;
+  /* outline: 1px solid black;
+  outline-offset: 5px; */
   border-radius: 100%;
   font-weight: 600;
   height: 50px;
@@ -1944,6 +1944,7 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   background-color: #fbfbfb;
   background-image: url('../assets/IMG_1570.jpg');
@@ -1959,6 +1960,13 @@ body {
   font-weight: 600;
   margin: 20px;
   text-transform: uppercase;
+}
+
+.main__hallOfHame__homes-text {
+  font-size: 20px;
+  color: rgb(0, 123, 255);
+  font-family: "Titillium", Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 
