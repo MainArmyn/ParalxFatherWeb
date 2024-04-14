@@ -769,6 +769,7 @@ body {
 .header__menu {
   position: absolute;
   top: 0;
+  opacity: 1;
   z-index: 8;
 }
 
@@ -1639,6 +1640,9 @@ body {
     display: flex;
     align-items: center;
   }
+
+
+  
   
   .word span {
     cursor: pointer;
@@ -1946,11 +1950,14 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
   background-color: #fbfbfb;
   background-image: url('../assets/IMG_1570.jpg');
   background-size: 70vh 80%;
   animation: moveBackground 35s linear infinite;
 }
+
+
 
 .main__hallOfHame__title {
   color: rgb(0, 123, 255);

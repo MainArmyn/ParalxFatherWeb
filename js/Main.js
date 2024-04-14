@@ -26,6 +26,8 @@ function HeaderWork() {
         StarAppear();
     }, 1000);
 }
+
+
 function HomesZoom() {
     function ContBtns(flag) {
         if (flag) {
@@ -92,6 +94,7 @@ function HomesZoom() {
     });
 
 }
+
 HomesZoom();
 function shiftAndHide(element) {
     // Устанавливаем начальное значение margin-left элемента
