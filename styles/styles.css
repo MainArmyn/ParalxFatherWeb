@@ -79,6 +79,8 @@
   animation-duration: 1000;
 }
 
+
+
 @media (max-width: 400px) {
     .header {
         background-image: url("../assets/FullSizeRender.GIF");
@@ -265,9 +267,10 @@
         gap: 250px;
       }
 
-      .main__home .uk-slider-items {
-        width: 500px;
-        height: 600px;
+
+      .main__home .uk-slider-items img{
+        width: 100% !important;
+        height: 650px !important;
       }
 
       .main__home__text {
@@ -1474,6 +1477,7 @@ body {
     position: relative;
     overflow-y: hidden;
     width: 100%;
+    min-height: 750px;
   height: 100vh;
   scrollbar-width: none;  /* Firefox */
   }
@@ -1551,6 +1555,7 @@ body {
   bottom: 0;
   transition: transform 0.9s ease;
   width: 100vw;
+  min-height: 800px;
   height: 100vh;
 }
 
